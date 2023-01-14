@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Vehicle {
+  uuid        String    @id
+  vin         String
+  make        String?
+  model       String?
+  mileage     Int?
+  year        Int?
+  price       Int?
+  zip         String?
+  dateCreated DateTime? @default(now())
+  dateUpdated DateTime?
+}
